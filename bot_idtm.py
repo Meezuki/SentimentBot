@@ -112,7 +112,12 @@ async def on_message(message):
         
         # 1. Simpan data ke dalam file teks (sebagai database lokal sederhana)
         waktu_sekarang = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        log_entry = f"[{waktu_sekarang}] {message.author.name} | Label: {label} ({confidence:.2f}%)\n"
+        
+        # log_entry = f"[{waktu_sekarang}] {message.author.name} | Label: {label} ({confidence:.2f}%)\n"
+
+        pesan_asli = message.content.replace('\n', ' ')
+        log_entry = f"[{waktu_sekarang}] {message.author.name} | Pesan: \"{pesan_asli}\" | Label: {label} ({confidence:.2f}%)\n"
+
         
         with open("toxicity_logs.txt", "a", encoding="utf-8") as f:
             f.write(log_entry)
