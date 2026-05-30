@@ -56,7 +56,7 @@ def predict_toxicity(text):
 
 # 3. Konfigurasi Klien Discord
 intents = discord.Intents.default()
-intents.message_content = True  # Wajib diaktifkan di Discord Developer Portal
+intents.message_content = True  
 client = discord.Client(intents=intents)
 
 @client.event
@@ -76,7 +76,7 @@ async def on_message(message):
     # FITUR COMMAND: !logs
     # ==========================================
     if message.content.startswith("!logs"):
-        # Opsional: Batasi hanya Admin atau pengguna dengan izin "Manage Messages" yang bisa melihat log
+        # Pengguna dengan izin "Manage Messages" yang bisa melihat log
         if not message.author.guild_permissions.manage_messages:
             await message.channel.send("❌ **Akses Ditolak!** Hanya tim moderator yang dapat mengakses log ini.")
             return
@@ -108,7 +108,7 @@ async def on_message(message):
     label, confidence = predict_toxicity(message.content)
 
     # Bot hanya bereaksi jika pesan terdeteksi toksik DAN keyakinan model > 75%
-    if label != "Neutral" and confidence > 75.0:
+    if label != "Neutral" and confidence > 80.0:
         
         # 1. Simpan data ke dalam file teks (sebagai database lokal sederhana)
         waktu_sekarang = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
