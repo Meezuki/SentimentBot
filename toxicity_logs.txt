@@ -1,0 +1,4 @@
+[2026-05-26 17:40:50] blues25 | Pesan: "anjing lu" | Label: Violence (98.87%)
+[2026-05-26 17:41:00] blues25 | Pesan: "kamu jawa" | Label: Racist (98.43%)
+[2026-05-26 17:41:03] blues25 | Pesan: "jawa lu" | Label: Racist (99.19%)
+[2026-05-26 17:41:08] blues25 | Pesan: "banci" | Label: Harassment (99.67%)
